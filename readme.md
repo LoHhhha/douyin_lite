@@ -1,5 +1,9 @@
 # DouYin_lite
 
+## interface definition
+
+https://bytedance.feishu.cn/docx/BhEgdmoI3ozdBJxly71cd30vnRc
+
 ## tables in database
 
 * users
@@ -211,3 +215,13 @@ insert into follows (uid,follower_uid) values
 (1,6),
 (2,1);
 ```
+
+## run
+
+```
+go build && ./douyin_lite
+```
+
+## warning
+
+* you should download ```ffmpeg.exe``` to ```./tool``` if you want to run in Windows.
