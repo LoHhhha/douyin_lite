@@ -191,23 +191,23 @@
 
 ## test case
 
-    ```mysql
-    insert into users (name,password) values
-    ("lohhhha","123456"),
-    ("testuser1","123456"),
-    ("testuser2","123456"),
-    ("testuser3","123456"),
-    ("testuser4","123456"),
-    ("testuser5","123456");
+```mysql
+insert into users (name,password) values
+("lohhhha","123456"),
+("testuser1","123456"),
+("testuser2","123456"),
+("testuser3","123456"),
+("testuser4","123456"),
+("testuser5","123456");
 
-    insert into videos (uid,play_url,cover_url,favorite_count,comment_count,uploadtime,title) values
-    (1,"/static/videos/1691829728_cat.mp4","/static/covers/1691829728_cat.jpg",0,0,"2023-08-12 16:42:09","cat");
+insert into videos (uid,play_url,cover_url,favorite_count,comment_count,uploadtime,title) values
+(1,"/static/videos/1691829728_cat.mp4","/static/covers/1691829728_cat.jpg",0,0,"2023-08-12 16:42:09","cat");
 
-    insert into follows (uid,follower_uid) values
-    (1,2),
-    (1,3),
-    (1,4),
-    (1,5),
-    (1,6),
-    (2,1);
-    ```
+insert into follows (uid,follower_uid) values
+(1,2),
+(1,3),
+(1,4),
+(1,5),
+(1,6),
+(2,1);
+```
