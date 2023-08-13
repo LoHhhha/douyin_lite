@@ -128,8 +128,10 @@ func Publish(c *gin.Context) {
 }
 
 func PublishList(c *gin.Context) {
+	// allow not login users check someone PublishList
+	// attention: if token != nil, we still check it.
 	token := c.Query("token")
-	if tools.CheckToken(token) == false {
+	if token != "" && tools.CheckToken(token) == false {
 		c.JSON(http.StatusBadRequest, pojo.Response{StatusCode: 1, StatusMsg: "token is invalid"})
 		return
 	}

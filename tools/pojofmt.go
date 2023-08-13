@@ -106,7 +106,7 @@ func VideoList2VideoWithInfoList(videos []pojo.Video, uid int64, optional ...int
 // CommentList2CommentWithUserList
 // @param: videos([]pojo.Video), uid(int64)
 // @return: res([]pojo.VideoWithInfo)
-/* this func will fill pojo.User.IsFollow */
+/* this func will fill pojo.User.IsFollow, let uid==0 to disable check follow. */
 func CommentList2CommentWithUserList(comments []pojo.Comment, uid int64) []pojo.CommentWithUser {
 	res := make([]pojo.CommentWithUser, len(comments))
 	for idx, comment := range comments {
@@ -118,7 +118,7 @@ func CommentList2CommentWithUserList(comments []pojo.Comment, uid int64) []pojo.
 		if err != nil {
 			ErrorPrint(err)
 		}
-		if found {
+		if found && uid != 0 {
 			res[idx].User = user
 			fid, err := repository.FindFollow(res[idx].User.Id, uid)
 			if err != nil {

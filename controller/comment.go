@@ -96,15 +96,19 @@ func CommentAction(c *gin.Context) {
 }
 
 func CommentList(c *gin.Context) {
+	// allow not login users check someone FavoriteList
+	// attention: if token != nil, we still check it.
+	var uid int64 = 0
 	token := c.Query("token")
-	claim, err := tools.ParseToken(token)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, pojo.Response{StatusCode: 1, StatusMsg: "token is invalid"})
-		tools.ErrorPrint(err)
-		return
+	if token != "" {
+		claim, err := tools.ParseToken(token)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, pojo.Response{StatusCode: 1, StatusMsg: "token is invalid"})
+			tools.ErrorPrint(err)
+			return
+		}
+		uid = claim.Id
 	}
-
-	uid := claim.Id
 
 	vid, err := strconv.ParseInt(c.Query("video_id"), 10, 64)
 	if err != nil {

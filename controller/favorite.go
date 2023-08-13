@@ -88,8 +88,10 @@ func FavoriteAction(c *gin.Context) {
 }
 
 func FavoriteList(c *gin.Context) {
+	// allow not login users check someone FavoriteList
+	// attention: if token != nil, we still check it.
 	token := c.Query("token")
-	if !tools.CheckToken(token) {
+	if token != "" && !tools.CheckToken(token) {
 		c.JSON(http.StatusBadRequest, UserListResponse{
 			Response: pojo.Response{StatusCode: 1, StatusMsg: "invalid token"},
 		})
