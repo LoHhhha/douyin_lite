@@ -225,3 +225,5 @@ go build && ./douyin_lite
 ## warning
 
 * you should download ```ffmpeg.exe``` to ```./tool``` if you want to run in Windows.
+
+* if you get such ```Permission denied``` when use ```ffmpeg``` in linux, you can try  ```chmod +x ./tools/ffmpeg```.
