@@ -96,7 +96,7 @@ func CommentAction(c *gin.Context) {
 }
 
 func CommentList(c *gin.Context) {
-	// allow not login users check someone FavoriteList
+	// allow not login users check someone CommentList
 	// attention: if token != nil, we still check it.
 	var uid int64 = 0
 	token := c.Query("token")
